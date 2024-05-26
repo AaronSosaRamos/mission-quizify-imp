@@ -8,7 +8,7 @@
   - [Prerequisites](#prerequisites)
   - [Step-by-Step Installation Guide](#step-by-step-installation-guide)
 - [Usage](#usage)
-- [Tasks] (#tasks)
+- [Tasks](#tasks)
 - [License](#license)
 - [Contact](#contact)
 
