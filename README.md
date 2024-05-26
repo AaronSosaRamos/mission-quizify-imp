@@ -8,6 +8,7 @@
   - [Prerequisites](#prerequisites)
   - [Step-by-Step Installation Guide](#step-by-step-installation-guide)
 - [Usage](#usage)
+- [Tasks] (#tasks)
 - [License](#license)
 - [Contact](#contact)
 
@@ -85,6 +86,66 @@ You are now ready to use Gemini Quizify! Load your PDFs, generate quizzes, and e
 1. **Load PDFs:** Use the interface to load a batch of PDFs into the system.
 2. **Generate Questions:** The system will process the documents, extract content, and generate multiple-choice questions.
 3. **Review and Export:** Review the generated questions and export them as needed.
+
+## Tasks
+
+1. **Google Cloud Configuration with VertexAI API Enabling and SDK Authentication with IAM User:**
+   - Enable VertexAI API on your Google Cloud project.
+   - Create an IAM user with the necessary permissions.
+   - Set up SDK authentication by downloading the JSON key file and setting the `GOOGLE_APPLICATION_CREDENTIALS` environment variable.
+
+2. **Clone the Project and Set Up the Development Environment:**
+   - Clone the repository:
+     ```bash
+     git clone https://github.com/AaronSosaRamos/mission-quizify-imp.git
+     cd mission-quizify-imp
+     ```
+   - Create a virtual environment and activate it:
+     ```bash
+     virtualenv venv
+     source venv/bin/activate
+     ```
+   - Install dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+   - If you encounter issues with Visual Studio Build Tools 2022, ensure they are installed and properly configured.
+   - Set the environment variable for Google Authentication:
+     ```bash
+     export GOOGLE_APPLICATION_CREDENTIALS="path/to/your/service-account-file.json"
+     ```
+
+3. **DocumentProcessor Class Creation:**
+   - Implement the `DocumentProcessor` class to manage multiple PDF files using `PyPDFLoader`.
+   - Ensure the class can load, parse, and prepare documents for embedding extraction.
+
+4. **EmbeddingClient with VertexAI:**
+   - Instantiate the `EmbeddingClient` class with VertexAI.
+   - Generate embeddings from provided texts using the VertexAI embedding service.
+
+5. **ChromaCollectionCreator for Vector Store:**
+   - Create the `ChromaCollectionCreator` class to enable a ChromaDB for a vector store.
+   - Relate document text with its embeddings for efficient retrieval.
+
+6. **Use Streamlit UI for Testing:**
+   - Test the functionalities of tasks 3 to 5 using the Streamlit UI.
+   - Ensure documents are processed, embeddings are generated, and stored correctly.
+
+7. **QuizGenerator Using LCEL:**
+   - Develop the `QuizGenerator` class using the Langchain Execution Library (LCEL).
+   - Chain the results based on ChromaCollection setup, prompt design, and LLM model (VertexAI).
+
+8. **QuizGenerator Update:**
+   - Implement the question generation feature in `QuizGenerator`.
+   - Validate the generated questions and their JSON format.
+
+9. **QuizManager for Navigation:**
+   - Create the `QuizManager` class for navigating between Streamlit pages of the generated questions.
+   - Ensure a smooth user experience for reviewing and managing quizzes.
+
+10. **Final Test with All Provided Classes:**
+    - Conduct a comprehensive test involving all classes: `DocumentProcessor`, `EmbeddingClient`, `ChromaCollectionCreator`, `QuizGenerator`, and `QuizManager`.
+    - Verify the end-to-end functionality of loading PDFs, generating embeddings, creating quizzes, and navigating through the questions in the Streamlit UI.
 
 ## License
 
